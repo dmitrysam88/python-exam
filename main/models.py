@@ -36,7 +36,7 @@ class Subdivision(models.Model):
     name = models.CharField(max_length=100)
 
 
-class Werker(models.Model):
+class Worker(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

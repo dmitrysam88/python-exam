@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99757fa4-92fb-4ce9-9a89-5b8a77af1e14" name="Default" comment="">
+    <list default="true" id="99757fa4-92fb-4ce9-9a89-5b8a77af1e14" name="Default" comment="version 1.02">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/migrations/0004_subdivision_werker.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main/migrations/0005_auto_20180616_2119.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/models.py" afterPath="$PROJECT_DIR$/main/models.py" />
@@ -48,8 +50,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            <state relative-caret-position="646">
+              <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -263,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529152258246</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="version 1.02">
+      <created>1529172978721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1529172978721</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -300,7 +309,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version 1.01" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1.01" />
+    <MESSAGE value="version 1.02" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1.02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -663,8 +673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="646">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
