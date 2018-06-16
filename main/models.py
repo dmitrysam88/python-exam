@@ -32,5 +32,13 @@ class Test(models.Model):
     time = models.DateTimeField()
     mark = models.IntegerField(max_length=5)
 
-    
+class Subdivision(models.Model):
+    name = models.CharField(max_length=100)
 
+
+class Werker(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    number = models.CharField(max_length=25)
+    subdivision = models.ForeignKey(Subdivision, on_delete=models.CASCADE)
