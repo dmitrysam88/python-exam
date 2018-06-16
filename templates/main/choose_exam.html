@@ -1,0 +1,21 @@
+{% extends 'MainTemplates.html' %}
+
+{% block content %}
+    <form action="testing" method="get">
+        {% csrf_token %}
+        <div class="form-group">
+            <select id="selectExam" name="Exam" class="form-control">
+                {% for exam in exams %}
+                    <option value="{{ exam.id }}">{{ exam.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="descriptionsExam">
+        {% for exam in exams %}
+            <div {% if exam != firsExam %}hidden{% endif %} class="border-div" id="{{ exam.id }}">{{ exam.description }}</div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

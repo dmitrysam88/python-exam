@@ -1,0 +1,27 @@
+{% extends 'MainTemplates.html' %}
+
+{% block content %}
+    <form action="check_answer" method="post" onsubmit="return confirm('Sure?')">
+        {% csrf_token %}
+        <input type="text" value="{{ examId }}" name="examId" hidden>
+        <ol>
+        {% for quest in arrQuest %}
+            <li><div class="form-group">
+                <p class="h4">{{ quest.text }}</p>
+                <ul>
+                {% for answer in arrAnswer %}
+                    {% if answer.question == quest %}
+                        <li>
+                        <input type="radio" name="quest{{ quest.id }}" id="answer{{ answer.id }}" value="{{ answer.id }}">
+                        <label for="answer{{ answer.id }}">{{ answer.text }}</label>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div></li>
+        {% endfor %}
+        </ol>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <!--<button class="btn btn-primary" type="button" id="myButton">My button</button>-->
+    </form>
+{% endblock %}

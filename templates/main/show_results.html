@@ -1,0 +1,49 @@
+{% extends 'MainTemplates.html' %}
+
+{% block content %}
+
+    <form method="get" action="">
+        <div class="form-group">
+            <div class="form-inline">
+                <label for="inputDate">Дата с:</label>
+                <input type="date" class="form-control" name="dateFrom" {% if dateFrom != None %}value="{{ dateFrom }}"{% endif %}>
+                <label for="inputDate">Дата по:</label>
+                <input type="date" class="form-control" name="dateTo" {% if dateTo != None %}value="{{ dateTo }}"{% endif %}>
+                <button type="submit" class="btn btn-primary">Отобрать</button>
+            </div>
+        </div>
+    </form>
+
+    <form action="create_file" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+        <input type="hidden" name="dateFrom" value="{{ dateFrom }}">
+        <input type="hidden" name="dateTo" value="{{ dateTo }}">
+        <button type="submit" class="btn btn-primary">Выгрузить</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Время</th>
+            <th>Пользователь</th>
+            <th>Экзамен</th>
+            <th>Оценка</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for foo in test %}
+            <tr>
+                <td>{{ foo.id }}</td>
+                <td>{{ foo.time.day }}-{{ foo.time.month }}-{{ foo.time.year }} {{ foo.time.hour}}:{{ foo.time.minute }}</td>
+                <td>{{ foo.user.username }}</td>
+                <td>{{ foo.exam.name }}</td>
+                <td>{{ foo.mark }}/{{ foo.exam.number_questions }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "MainTemplates.html" %}
+
+{% block content %}
+
+    <!--<form action="dawnload_questions" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="QuestionFile">Question file</label>
+            <input id="QuestionFile" type="file" name="QuestionFile" accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>-->
+
+    <ol>
+    {% for question in questions %}
+        <li><p class="h4">{{ question.text }}</p>
+        <ul>
+        {% for answer in answers %}
+            {% if answer.question == question %}
+                <li><p>{{ answer.text }}<span style='padding-left:10px;'> </span>
+                    {% if request.user.is_superuser %}
+                        {% if answer.right %}
+                            <span class="glyphicon glyphicon-ok"></span>
+                        {% else %}
+                            <span class="glyphicon glyphicon-remove"></span>
+                        {% endif %}
+                    {% endif %}
+                </p></li>
+            {% endif %}
+        {% endfor %}
+        </ul></li>
+    {% endfor %}
+    </ol>
+
+{% endblock %}

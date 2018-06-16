@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam</title>
+
+    {% load bootstrap3 %}
+    <script src="{% bootstrap_jquery_url %}"></script>
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+
+    <script type="application/javascript" src="{% static 'js/jquery-migrate-1.4.1.js' %}"></script>
+
+</head>
+<body>
+
+<div class="wrap">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">WebSiteName</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="choose_exam">Начать экзамен</a></li>
+                    <li><a href="quest_ans">Вопросы/Ответы</a></li>
+                    <li><a href="show_results">Результаты</a></li>
+                    <!--<li><a href="">Page 2</a></li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if request.user.is_superuser %}
+                        <li><a href="/admin"><span class="glyphicon glyphicon-user"></span> Admin panel</a></li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    {% else %}
+                        <!--<li><a href=""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="pull-left">&copy; My Company</p>
+
+        <p class="pull-right">Django</p>
+    </div>
+</footer>
+
+<script type="application/javascript" src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+</html>
