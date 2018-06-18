@@ -29,6 +29,10 @@
             <th>№</th>
             <th>Время</th>
             <th>Пользователь</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Номер</th>
+            <th>Подразделение</th>
             <th>Экзамен</th>
             <th>Оценка</th>
         </tr>
@@ -39,6 +43,14 @@
                 <td>{{ foo.id }}</td>
                 <td>{{ foo.time.day }}-{{ foo.time.month }}-{{ foo.time.year }} {{ foo.time.hour}}:{{ foo.time.minute }}</td>
                 <td>{{ foo.user.username }}</td>
+                {% for worker in workers %}
+                    {% if worker.user == foo.user %}
+                        <td>{{ worker.first_name }}</td>
+                        <td>{{ worker.last_name }}</td>
+                        <td>{{ worker.number }}</td>
+                        <td>{{ worker.subdivision.name }}</td>
+                    {% endif %}
+                {% endfor %}
                 <td>{{ foo.exam.name }}</td>
                 <td>{{ foo.mark }}/{{ foo.exam.number_questions }}</td>
             </tr>
